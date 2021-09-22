@@ -22,7 +22,7 @@ jobs:
         path: |
           node_modules
           .next/node_modules
-        key: node-modules-${{ hashFiles('yarn.lock')}}
+        key: node-modules-1-${{ hashFiles('yarn.lock')}}
 
     - name: Install npm dependencies
       run: yarn
