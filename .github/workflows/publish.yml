@@ -41,7 +41,7 @@ jobs:
 
     - name: Remove docs if exist
       run: |
-        "[[ -d docs ]] && (rm -rf docs)""
+        "[[ -d docs ]] && (rm -rf docs)"
 
     - name: Update Notes
       run: |
