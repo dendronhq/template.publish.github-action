@@ -39,9 +39,13 @@ jobs:
     - name: Prep notes for publish
       run: cd .next && yarn export && cd ..
 
-    - name: Update files
+    - name: Remove docs if exist
       run: |
-        cd .next && [[ -d ../docs ]] && rm -r ../docs && mv out ../docs && touch ../docs/.nojekyll && cd ..
+        "[[ -d docs ]] && (rm -rf docs)""
+
+    - name: Update Notes
+      run: |
+        cd .next && mv out ../docs && touch ../docs/.nojekyll && cd ..
 
     - name: Deploy site
       uses: peaceiris/actions-gh-pages@v3
