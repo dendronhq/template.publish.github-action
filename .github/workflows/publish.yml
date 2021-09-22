@@ -40,8 +40,7 @@ jobs:
       run: cd .next && yarn export && cd ..
 
     - name: Remove docs if exist
-      run: |
-        "[[ -d docs ]] && (rm -rf docs)"
+      run: '(test -d docs && rm -rf docs) || echo skipping'
 
     - name: Update Notes
       run: |
