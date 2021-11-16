@@ -1,40 +1,19 @@
-version: 1
-maxPreviewsCached: 10
-vaults:
-    -
-        fsPath: vault
+version: 3
 useFMTitle: true
 useNoteTitleForLink: true
-noAutoCreateOnDefinition: true
 noLegacyNoteRef: true
-noXVaultWikiLink: true
-lookupConfirmVaultOnCreate: false
 mermaid: true
 useKatex: true
-autoFoldFrontmatter: true
 usePrettyRefs: true
 dev:
     enablePreviewV2: true
-lookup:
-    note:
-        selectionType: selectionExtract
-journal:
-    dailyDomain: daily
-    name: journal
-    dateFormat: y.MM.dd
-    addBehavior: childOfDomain
-    firstDayOfWeek: 1
-scratch:
-    name: scratch
-    dateFormat: y.MM.dd.HHmmss
-    addBehavior: asOwnDomain
 site:
     copyAssets: true
     siteHierarchies:
         - root
     siteRootDir: docs
-    siteUrl: "https://dendronhq.github.io"
-    assetsPrefix: "/template.publish.github-action"
+    siteUrl: 'https://dendronhq.github.io'
+    assetsPrefix: /template.publish.github-action
     usePrettyRefs: true
     title: Dendron
     description: Personal knowledge space
@@ -44,4 +23,62 @@ site:
         action: useVault
         payload:
             - vault
-initializeRemoteVaults: true
+commands:
+    lookup:
+        note:
+            selectionMode: extract
+            confirmVaultOnCreate: false
+            leaveTrace: false
+    insertNote:
+        initialValue: templates
+    insertNoteLink:
+        aliasMode: none
+        enableMultiSelect: false
+    insertNoteIndex:
+        enableMarker: false
+    randomNote: {}
+workspace:
+    vaults:
+        -
+            fsPath: vault
+    journal:
+        dailyDomain: daily
+        name: journal
+        dateFormat: y.MM.dd
+        addBehavior: childOfDomain
+    scratch:
+        name: scratch
+        dateFormat: y.MM.dd.HHmmss
+        addBehavior: asOwnDomain
+    graph:
+        zoomSpeed: 1
+    enableAutoCreateOnDefinition: false
+    enableXVaultWikiLink: false
+    enableRemoteVaultInit: true
+    workspaceVaultSyncMode: noCommit
+    enableAutoFoldFrontmatter: true
+    maxPreviewsCached: 10
+    maxNoteLength: 204800
+    task:
+        name: ''
+        dateFormat: ''
+        addBehavior: childOfCurrent
+        statusSymbols:
+            '': ' '
+            wip: w
+            done: x
+            assigned: a
+            moved: m
+            blocked: b
+            delegated: l
+            dropped: d
+            pending: 'y'
+        prioritySymbols:
+            H: high
+            M: medium
+            L: low
+        todoIntegration: false
+        createTaskSelectionType: selection2link
+    enableUserTags: true
+    enableHashTags: true
+    dendronVersion: 0.68.2
