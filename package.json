@@ -6,6 +6,6 @@
   "author": "Kevin <kevin@dendron.so>",
   "license": "MIT",
   "dependencies": {
-    "@dendronhq/dendron-cli": "^0.60.1-alpha.2"
+    "@dendronhq/dendron-cli": "*"
   }
 }
