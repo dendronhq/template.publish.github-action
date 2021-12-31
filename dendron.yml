@@ -28,6 +28,7 @@ commands:
             confirmVaultOnCreate: false
             leaveTrace: false
             bubbleUpCreateNew: true
+            fuzzThreshold: 0.2
     insertNote:
         initialValue: templates
     insertNoteLink:
@@ -80,10 +81,12 @@ workspace:
         createTaskSelectionType: selection2link
     enableUserTags: true
     enableHashTags: true
-    dendronVersion: 0.70.1-alpha.0
+    dendronVersion: 0.70.0
+    enableEditorDecorations: true
 preview:
     enableFMTitle: true
     enableNoteTitleForLink: true
     enableMermaid: true
     enablePrettyRefs: true
     enableKatex: true
+    automaticallyShowPreview: false
