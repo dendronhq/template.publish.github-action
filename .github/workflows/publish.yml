@@ -14,6 +14,9 @@ jobs:
       with:
         fetch-depth: 0
 
+    - name: Delete cache if present
+      run: "rm -rf .next && rm -rf docs && rm -rf node_modules"
+
     - name: Install npm dependencies
       ## Install latest version
       # This always publishes with the latest dendron version
@@ -40,12 +43,9 @@ jobs:
     - name: Initialize or pull nextjs template
       run: npx dendron publish init
 
-    - name: Delete cache if present
-      run: "rm -rf .next && rm -rf docs && rm -rf node_modules"
-
     - name: Export notes
       #run: npx dendron publish export --target github --yes
-      run: "npx dendron publish export && mv .next/out docs"
+      run: "npx dendron publish export --target github"
 
     - name: Deploy site
       uses: peaceiris/actions-gh-pages@v3
