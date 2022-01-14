@@ -1,6 +1,9 @@
 node_modules
 .dendron.*
 build
-
 .next
 .history
+
+# dependency versioning / pinning
+package*.json
+yarn.lock
