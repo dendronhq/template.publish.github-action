@@ -44,8 +44,7 @@ jobs:
       run: npx dendron publish init
 
     - name: Export notes
-      #run: npx dendron publish export --target github --yes
-      run: "npx dendron publish export --target github"
+      run: npx dendron publish export --target github --yes
 
     - name: Deploy site
       uses: peaceiris/actions-gh-pages@v3
