@@ -45,9 +45,7 @@ jobs:
 
     - name: Export notes
       #run: npx dendron publish export --target github --yes
-      run:
-        - npx dendron publish export
-        - mv .next/out docs
+      run: "npx dendron publish export && mv .next/out docs"
 
     - name: Deploy site
       uses: peaceiris/actions-gh-pages@v3
