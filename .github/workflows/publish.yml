@@ -25,7 +25,10 @@ jobs:
         # key: node-modules-${{ hashFiles('yarn.lock')}}
 
     - name: Install npm dependencies
-      run: npm install @dendronhq/dendron-cli@latest
+      run: yarn add @dendronhq/dendron-cli@latest
+
+    - name: CLI version
+      run: echo `npx dendron --version`
 
     - name: Delete next cache
       run: "(test -d .next/.next) && (rm -rf .next/.next && echo 'delete Next.js cache') || echo 'no Next.js cache found'"
@@ -34,10 +37,10 @@ jobs:
       run: "(test -d .next) && (echo 'updating dendron next...' && cd .next && git reset --hard && git clean -f && git pull && yarn && cd ..) || (echo 'init dendron next' && npx dendron publish init)"
 
     - name: Debug
-      run: "echo `pwd` && ls"
+      run: "echo `pwd` && ls -a"
 
     - name: Export notes
-      run: npx dendron publish export --target github --yes
+      run: npx dendron publish export --target github --yes --wsRoot .
 
     - name: Deploy site
       uses: peaceiris/actions-gh-pages@v3
