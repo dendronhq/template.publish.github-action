@@ -2,7 +2,7 @@
 id: wn8PE1RhG0znK1alrGFYv
 title: Root
 desc: ''
-updated: 1643136292871
+updated: 1643136640536
 created: 1631901573363
 ---
 # Welcome to Dendron
@@ -15,3 +15,4 @@ Last updated:
 - version: v0.79
 
 - 2022-01-25 10:44: 
+- 2022-01-25 10:50: 
