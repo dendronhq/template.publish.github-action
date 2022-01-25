@@ -6,4 +6,3 @@ build
 
 # dependency versioning / pinning
 package*.json
-yarn.lock

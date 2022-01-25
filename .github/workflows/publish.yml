@@ -19,20 +19,22 @@ jobs:
       id: node-modules-cache
       with:
         path: |
-          *lock.json
           node_modules
-          .next/*
-          !.next/.next/*
-        key: dendron2
+        key: ${{ runner.os }}-dendron-${{ hashFiles('yarn.lock') }}
 
-    - name: Install npm dependencies
-      run: yarn add @dendronhq/dendron-cli@latest
+    - name: Restore Next cache
+      uses: actions/cache@v2
+      with:
+        path: .next/.next/cache
+        # Generate a new cache whenever packages or source files change.
+        key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+        # If source files changed but packages didn't, rebuild from a prior cache.
+        restore-keys: |
+          ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-
 
-    - name: CLI version
-      run: echo `npx dendron --version`
 
-    - name: Delete next cache
-      run: "(test -d .next/.next) && (rm -rf .next/.next && echo 'delete Next.js cache') || echo 'no Next.js cache found'"
+    - name: Install dependencies
+      run: yarn
 
     - name: Initialize or pull nextjs template
       run: "(test -d .next) && (echo 'updating dendron next...' && cd .next && git reset --hard && git clean -f && git pull && yarn && cd ..) || (echo 'init dendron next' && npx dendron publish init)"
