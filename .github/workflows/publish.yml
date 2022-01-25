@@ -19,11 +19,11 @@ jobs:
       id: node-modules-cache
       with:
         path: |
+          *lock.json
           node_modules
           .next/*
           !.next/.next/*
         key: dendron2
-        # key: node-modules-${{ hashFiles('yarn.lock')}}
 
     - name: Install npm dependencies
       run: yarn add @dendronhq/dendron-cli@latest
@@ -47,4 +47,3 @@ jobs:
         publish_branch: pages
         publish_dir: docs/
         force_orphan: true
-        #cname: example.com
