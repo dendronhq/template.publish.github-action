@@ -20,23 +20,22 @@ jobs:
       with:
         path: |
           node_modules
-          .next
+          .next/*
           !.next/.next/cache
         key: ${{ runner.os }}-dendron-${{ hashFiles('**/yarn.lock') }}
-
-    - name: Restore Next cache
-      uses: actions/cache@v2
-      with:
-        path: .next/.next/cache
-        # Generate a new cache whenever packages or source files change.
-        key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
-
 
     - name: Install dependencies
       run: yarn
 
     - name: Initialize or pull nextjs template
       run: "(test -d .next) && (echo 'updating dendron next...' && cd .next && git reset --hard && git clean -f && git pull && yarn && cd ..) || (echo 'init dendron next' && yarn dendron publish init)"
+
+    - name: Restore Next cache
+      uses: actions/cache@v2
+      with:
+        path: .next/.next/cache
+        # Generate a new cache whenever packages or source files change.
+        key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('.next/**.[jt]s', '.next/**.[jt]sx') }}
 
     - name: Export notes
       run: yarn dendron publish export --target github --yes
