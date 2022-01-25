@@ -37,10 +37,10 @@ jobs:
       run: yarn
 
     - name: Initialize or pull nextjs template
-      run: "(test -d .next) && (echo 'updating dendron next...' && cd .next && git reset --hard && git clean -f && git pull && yarn && cd ..) || (echo 'init dendron next' && npx dendron publish init)"
+      run: "(test -d .next) && (echo 'updating dendron next...' && cd .next && git reset --hard && git clean -f && git pull && yarn && cd ..) || (echo 'init dendron next' && yarn dendron publish init)"
 
     - name: Export notes
-      run: npx dendron publish export --target github --yes
+      run: yarn dendron publish export --target github --yes
 
     - name: Deploy site
       uses: peaceiris/actions-gh-pages@v3
