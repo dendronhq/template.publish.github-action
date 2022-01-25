@@ -4,5 +4,3 @@ build
 .next
 .history
 
-# dependency versioning / pinning
-package*.json
