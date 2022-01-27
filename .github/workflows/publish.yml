@@ -36,7 +36,7 @@ jobs:
       with:
         path: .next/.next/cache
         # Generate a new cache whenever packages or source files change.
-        key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('.next/**.[jt]s', '.next/**.[jt]sx') }}
+        key: ${{ runner.os }}-nextjs-${{ hashFiles('.next/yarn.lock') }}-${{ hashFiles('.next/**.[jt]s', '.next/**.[jt]sx') }}
 
     - name: Export notes
       run: yarn dendron publish export --target github --yes
