@@ -14,17 +14,24 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Restore Node modules cache
-      uses: actions/cache@v2
-      id: node-modules-cache
+    - uses: actions/setup-node@v2
       with:
-        path: |
-          node_modules
-          .next/*
-          !.next/.next/cache
-          !.next/.env.*
-          !.next/package-lock.json
-        key: ${{ runner.os }}-dendronv2-${{ hashFiles('**/yarn.lock') }}
+        node-version: '14'
+        cache: 'yarn'
+        cache-dependency-path: |
+          yarn.lock
+          .next/yarn.lock
+    # - name: Restore Node modules cache
+    #   uses: actions/cache@v2
+    #   id: node-modules-cache
+    #   with:
+    #     path: |
+    #       node_modules
+    #       .next/*
+    #       !.next/.next/cache
+    #       !.next/.env.*
+    #       !.next/package-lock.json
+    #     key: ${{ runner.os }}-dendronv2-${{ hashFiles('**/yarn.lock') }}
 
     - name: Install dependencies
       run: yarn
