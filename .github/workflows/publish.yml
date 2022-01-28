@@ -1,6 +1,7 @@
 name: Build Dendron Static Site
 
 on:
+  workflow_dispatch: # Enables on-demand/manual triggering
   push:
     branches:
     - main
