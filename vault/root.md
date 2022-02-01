@@ -12,18 +12,5 @@ created: 1631901573363
 This is the root of your dendron vault. If you decide to publish your entire vault, this will be your landing page. You are free to customize any part of this page except the frontmatter on top. 
 
 Last updated: 
-- version: v0.79
-
-- 2022-01-25 10:44: 
-- 2022-01-25 10:50: 
-- 2022-01-25 11:17: 
-- 2022-01-25 11:24: 
-- 2022-01-25 11:33: 
-- 2022-01-25 11:37: 
-- 2022-01-27 14:12: update
-- 2022-01-27 14:18: test
-- 2022-01-27 15:05: test
-- 2022-01-27 17:29: test
-- 2022-01-27 17:48: test
-- 2022-01-27 18:07: test
+- version: v0.80
 
