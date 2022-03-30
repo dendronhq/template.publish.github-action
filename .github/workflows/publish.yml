@@ -24,7 +24,7 @@ jobs:
           .next/*
           !.next/.next/cache
           !.next/.env.*
-        key: ${{ runner.os }}-dendronv2-${{ hashFiles('**/yarn.lock', '**/package-lock.json') }}
+        key: ${{ runner.os }}-dendronv2-${{ hashFiles('**/yarn.lock', '**/package-lock.json') }}-2
 
     - name: Install dependencies
       run: npm install
