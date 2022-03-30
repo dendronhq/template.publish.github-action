@@ -27,7 +27,7 @@ jobs:
         key: ${{ runner.os }}-dendronv2-${{ hashFiles('**/yarn.lock', '**/package-lock.json') }}
 
     - name: Install dependencies
-      run: yarn
+      run: npm install
 
     - name: Restore Next cache
       uses: actions/cache@v2
