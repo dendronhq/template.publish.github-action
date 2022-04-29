@@ -7,6 +7,9 @@ This project is a minimal setup template for publishing a Dendron Workspace to G
 Directions on how to use this template are mentioned in:
 - [Dendron Docs: Publishing with GitHub Pages via GitHub Actions](https://wiki.dendron.so/notes/FnK2ws6w1uaS1YzBUY3BR/)
 
+For directions on how to migrate and/or upgrade to the latest version of Dendron:
+- [Dendron Publishing: Migrating and Upgrading](https://wiki.dendron.so/notes/rYbs1qLh9VJBXCJlSzMt4/)
+
 ## Other Publishing Paths
 
 - [Share Your Notes Online: Publish Dendron with Netlify and GitHub](https://blog.dendron.so/notes/7h7zZkjF4Yqz8XSrHS1je)
@@ -25,6 +28,7 @@ Directions on how to use this template are mentioned in:
 
 * Join [Dendron on Discord](https://link.dendron.so/discord)
 * Follow [Dendron on Twitter](https://link.dendron.so/twitter)
+* Follow [Dendron on Mastodon](https://link.dendron.so/mastodon)
 * Join the [Dendron Newsletter](https://link.dendron.so/newsletter)
 * Register for [Dendron Events on Luma](https://link.dendron.so/luma)
 * Checkout [Dendron on GitHub](https://link.dendron.so/github)
