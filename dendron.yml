@@ -63,8 +63,9 @@ workspace:
         createTaskSelectionType: selection2link
     enableUserTags: true
     enableHashTags: true
-    dendronVersion: 0.83.0
+    dendronVersion: 0.95.0
     enableEditorDecorations: true
+    enableFullHierarchyNoteTitle: false
 preview:
     enableFMTitle: true
     enableNoteTitleForLink: true
@@ -72,6 +73,8 @@ preview:
     enablePrettyRefs: true
     enableKatex: true
     automaticallyShowPreview: false
+    enableFrontmatterTags: true
+    enableHashesForFMTags: false
 publishing:
     enableFMTitle: true
     enableNoteTitleForLink: true

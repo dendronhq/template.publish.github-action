@@ -26,6 +26,9 @@ jobs:
           !.next/.env.*
         key: ${{ runner.os }}-dendronv2-${{ hashFiles('**/yarn.lock', '**/package-lock.json') }}-2
 
+    - name: Contents of next
+      run: "ls .next || 0"
+
     - name: Install dependencies
       run: npm install
 
@@ -38,6 +41,9 @@ jobs:
 
     - name: Initialize or pull nextjs template
       run: "(test -d .next) && (echo 'updating dendron next...' && cd .next && git reset --hard && git pull && yarn && cd ..) || (echo 'init dendron next' && yarn dendron publish init)"
+
+    - name: Contents of next
+      run: "ls .next || 0"
 
     - name: Export notes
       run: yarn dendron publish export --target github --yes
