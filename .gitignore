@@ -1,6 +1,5 @@
 node_modules
 .dendron.*
 build
-.next
 .history
 docs
