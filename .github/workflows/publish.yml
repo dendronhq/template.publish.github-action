@@ -24,7 +24,7 @@ jobs:
           .next/*
           !.next/.next/cache
           !.next/.env.*
-        key: ${{ runner.os }}-dendronv2-${{ hashFiles('**/yarn.lock', '**/package-lock.json') }}-3
+        key: ${{ runner.os }}-dendronv2-${{ hashFiles('**/yarn.lock', '**/package-lock.json') }}-4
 
     - name: Contents of next
       run: "(test -d .next) && ls .next || echo 'no next file'"
@@ -43,7 +43,7 @@ jobs:
       with:
         path: .next/.next/cache
         # Generate a new cache whenever packages or source files change.
-        key: ${{ runner.os }}-nextjs-${{ hashFiles('.next/yarn.lock', '.next/package-lock.json') }}-${{ hashFiles('.next/**.[jt]s', '.next/**.[jt]sx') }}
+        key: ${{ runner.os }}-nextjs-${{ hashFiles('.next/yarn.lock', '.next/package-lock.json') }}-${{ hashFiles('.next/**.[jt]s', '.next/**.[jt]sx') }}-1
 
     - name: Export notes
       run: yarn dendron publish export --target github --yes
