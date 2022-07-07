@@ -4,55 +4,59 @@ on:
   workflow_dispatch: # Enables on-demand/manual triggering
   push:
     branches:
-    - main
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout source
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
+      - name: Checkout source
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
-    - name: Restore Node modules cache
-      uses: actions/cache@v2
-      id: node-modules-cache
-      with:
-        path: |
-          node_modules
-          .next/*
-          !.next/.next/cache
-          !.next/.env.*
-        key: ${{ runner.os }}-dendronv2-${{ hashFiles('**/yarn.lock', '**/package-lock.json') }}-4
+      - name: Restore Node modules cache
+        uses: actions/cache@v2
+        id: node-modules-cache
+        with:
+          path: |
+            node_modules
+            .next/*
+            !.next/.next/cache
+            !.next/.env.*
+          key: ${{ runner.os }}-dendronv2-${{ hashFiles('**/yarn.lock', '**/package-lock.json') }}-4
 
-    - name: Contents of next
-      run: "(test -d .next) && ls .next || echo 'no next file'"
+      - name: Contents of next
+        run: "(test -d .next) && ls .next || echo 'no next file'"
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Initialize or pull nextjs template
-      run: "(test -d .next) && (echo 'updating dendron next...' && cd .next && git reset --hard && git pull && yarn && cd ..) || (echo 'init dendron next' && yarn dendron publish init)"
+      - name: Initialize or pull nextjs template
+        run: "(test -d .next) && (echo 'updating dendron next...' && cd .next && git reset --hard && git pull && yarn && cd ..) || (echo 'init dendron next' && yarn dendron publish init)"
 
-    - name: Contents of next
-      run: "(test -d .next) && ls .next || echo 'no next file'"
+      - name: Contents of next
+        run: "(test -d .next) && ls .next || echo 'no next file'"
 
-    - name: Restore Next cache
-      uses: actions/cache@v2
-      with:
-        path: .next/.next/cache
-        # Generate a new cache whenever packages or source files change.
-        key: ${{ runner.os }}-nextjs-${{ hashFiles('.next/yarn.lock', '.next/package-lock.json') }}-${{ hashFiles('.next/**.[jt]s', '.next/**.[jt]sx') }}-1
+      - name: Generate packed circled visualization of vaults
+        run: 'yarn dendron visualize --out ./docs/assets'
+        working-directory: '.'
 
-    - name: Export notes
-      run: yarn dendron publish export --target github --yes
+      - name: Restore Next cache
+        uses: actions/cache@v2
+        with:
+          path: .next/.next/cache
+          # Generate a new cache whenever packages or source files change.
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('.next/yarn.lock', '.next/package-lock.json') }}-${{ hashFiles('.next/**.[jt]s', '.next/**.[jt]sx') }}-1
 
-    - name: Deploy site
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_branch: pages
-        publish_dir: docs/
-        force_orphan: true
-        #cname: example.com
+      - name: Export notes
+        run: yarn dendron publish export --target github --yes
+
+      - name: Deploy site
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: pages
+          publish_dir: docs/
+          force_orphan: true
+          #cname: example.com
