@@ -14,5 +14,5 @@ This is the root of your dendron vault. If you decide to publish your entire vau
 
 Last updated:
 
-- version: v0.97
-- date: 2022-09-17-b
+- version: v0.114
+- date: 2022-09-27
