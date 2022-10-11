@@ -1,0 +1,146 @@
+{
+  "version": 5,
+  "dev": {
+    "enablePreviewV2": true
+  },
+  "commands": {
+    "lookup": {
+      "note": {
+        "selectionMode": "extract",
+        "confirmVaultOnCreate": false,
+        "leaveTrace": false,
+        "bubbleUpCreateNew": true,
+        "fuzzThreshold": 0.2,
+        "vaultSelectionModeOnCreate": "smart"
+      }
+    },
+    "insertNote": {
+      "initialValue": "templates"
+    },
+    "insertNoteLink": {
+      "aliasMode": "none",
+      "enableMultiSelect": false
+    },
+    "insertNoteIndex": {
+      "enableMarker": false
+    },
+    "randomNote": {},
+    "copyNoteLink": {},
+    "templateHierarchy": "template"
+  },
+  "workspace": {
+    "vaults": [
+      {
+        "fsPath": "vault"
+      }
+    ],
+    "journal": {
+      "dailyDomain": "daily",
+      "name": "journal",
+      "dateFormat": "y.MM.dd",
+      "addBehavior": "childOfDomain"
+    },
+    "scratch": {
+      "name": "scratch",
+      "dateFormat": "y.MM.dd.HHmmss",
+      "addBehavior": "asOwnDomain"
+    },
+    "graph": {
+      "zoomSpeed": 1,
+      "createStub": false
+    },
+    "enableAutoCreateOnDefinition": false,
+    "enableXVaultWikiLink": false,
+    "enableRemoteVaultInit": true,
+    "workspaceVaultSyncMode": "noCommit",
+    "enableAutoFoldFrontmatter": true,
+    "maxPreviewsCached": 10,
+    "maxNoteLength": 204800,
+    "task": {
+      "name": "",
+      "dateFormat": "",
+      "addBehavior": "childOfCurrent",
+      "statusSymbols": {
+        "": " ",
+        "wip": "w",
+        "done": "x",
+        "assigned": "a",
+        "moved": "m",
+        "blocked": "b",
+        "delegated": "l",
+        "dropped": "d",
+        "pending": "y"
+      },
+      "prioritySymbols": {
+        "H": "high",
+        "M": "medium",
+        "L": "low"
+      },
+      "todoIntegration": false,
+      "createTaskSelectionType": "selection2link",
+      "taskCompleteStatus": [
+        "done",
+        "x"
+      ]
+    },
+    "enableUserTags": true,
+    "enableHashTags": true,
+    "dendronVersion": "0.95.0",
+    "enableEditorDecorations": true,
+    "enableFullHierarchyNoteTitle": false,
+    "enableHandlebarTemplates": false,
+    "templateHierarchy": "template",
+    "enableSmartRefs": false
+  },
+  "preview": {
+    "enableFMTitle": true,
+    "enableNoteTitleForLink": true,
+    "enableMermaid": true,
+    "enablePrettyRefs": true,
+    "enableKatex": true,
+    "automaticallyShowPreview": false,
+    "enableFrontmatterTags": true,
+    "enableHashesForFMTags": false
+  },
+  "publishing": {
+    "enableFMTitle": true,
+    "enableNoteTitleForLink": true,
+    "enableMermaid": true,
+    "enablePrettyRefs": true,
+    "enableKatex": true,
+    "assetsPrefix": "/template.publish.github-action",
+    "copyAssets": true,
+    "siteHierarchies": [
+      "root"
+    ],
+    "enableSiteLastModified": true,
+    "siteRootDir": "docs",
+    "siteUrl": "https://dendronhq.github.io",
+    "enableFrontmatterTags": true,
+    "enableHashesForFMTags": false,
+    "enableRandomlyColoredTags": true,
+    "duplicateNoteBehavior": {
+      "action": "useVault",
+      "payload": [
+        "vault"
+      ]
+    },
+    "writeStubs": false,
+    "seo": {
+      "title": "Dendron",
+      "description": "Personal knowledge space"
+    },
+    "github": {
+      "enableEditLink": true,
+      "editLinkText": "Edit this page on GitHub",
+      "editBranch": "main",
+      "editViewMode": "tree"
+    },
+    "enablePrettyLinks": true,
+    "theme": "dark",
+    "enableTaskNotes": true,
+    "templateVersion": "0.97.0",
+    "siteFaviconPath": "favicon.ico",
+    "siteIndex": "root"
+  }
+}
